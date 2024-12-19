@@ -5,8 +5,6 @@ import { toast } from "react-toastify";
 
 const Login = ({setToken}) => {
   const [login, setLogin] = useState({});
-  console.log(login);
-
   const loginFun = (event) => {
     setLogin({ ...login, [event.target.name]: event.target.value });
   };
@@ -17,10 +15,8 @@ const Login = ({setToken}) => {
       const { data } = await axios.post(
         `${backendUrl}/admin/login`,
         login
-      );
-      console.log(data);
-      
-      if (data.status == 400) {
+      );      
+      if (data.success == false) {
         toast.error(data.msg)
       } else {
         setToken(data.token)

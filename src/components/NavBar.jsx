@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const NavBar = () => {
+const NavBar = ({setToken}) => {
   const buttonFun=()=>{
-    localStorage.removeItem("token")
+    setToken("")
   }
   return (
     <div className='flex justify-between items-center py-2 px-[4%]'>
