@@ -52,6 +52,8 @@ const AddProduct = ({ token }) => {
       if (data.success == false) {
         toast.error(data.msg);
       } else {
+        setProduct({})
+        setSize([])
         toast.success(data.msg);
       }
     } catch (err) {
